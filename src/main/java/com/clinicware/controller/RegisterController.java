@@ -21,7 +21,7 @@ public class RegisterController {
         User user = new User(username, password, first, last, title, userType);
         System.out.println(user);
         model.addAttribute("user", user);
-        return "redirect:/register/regist";
+        return "redirect:/register/regist/"+user;
     }
 
 }

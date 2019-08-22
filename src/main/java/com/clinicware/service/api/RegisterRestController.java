@@ -23,16 +23,12 @@ public class RegisterRestController {
         System.out.println("constructed");
     }
 
-    @RequestMapping(path = "/regist", produces = "text/xml")
-    public RegisterValidation addNewUser(
-            @RequestParam("username") String username,
-            @RequestParam("password") String password,
-            @RequestParam("first") String first,
-            @RequestParam("last") String last,
-            @RequestParam("title") String title,
-            @RequestParam("userType") int userType,
-            int entryUser, String device){
-        System.out.println("hi");
-        return userService.registerNewUser(username, password, first, last, title, userType, entryUser, device);
+    @RequestMapping(path = "/regist/{user}", produces = "text/xml")
+    @ResponseBody
+    public RegisterValidation addNewUser(@PathVariable String user){
+//        System.out.println(user.getUsername() + " " + user.getPassword());
+        System.out.println(user);
+        return null;
+        //userService.registerNewUser(user);
     }
 }
