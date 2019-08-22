@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Home</title>
+	<link href="/static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" type="text/css" media="screen">
+</head>
+<body>
+
+	<center>
+		<div class="frame">
+			<div class="frame-header">
+				<h2 style="font-family: sans-serif; color: white">Please log in ..</h2>
+			</div>
+			<form method="post" th:action="@{home/login}" style="padding-top: 4%;">
+				<input type="text" name="username" placeholder="Username" required style="background-image: url(../images/user.png);"><br/>
+				<input type="password" name="password" placeholder="Password" required style="background-image: url(../images/password.png);"><br/><br/>
+				<input type="submit" name="login" value="Log in" >
+			</form>
+		</div>
+	</center>
+
+</body>
+</html>

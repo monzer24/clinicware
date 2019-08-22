@@ -1,0 +1,58 @@
+body{
+	background-image: url(../images/doctor1.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.frame{
+	width: 35%;
+	height: 50%;
+	color: grey;
+	background-color: white;
+	box-shadow: 10px 10px 5px;
+	margin-top: 20%;
+	padding-bottom: 2%;
+	border-radius: 10px;
+}
+
+.frame-header{
+	background-color: #07575B;
+	padding-top: 2%; 
+	padding-bottom: 2%; 
+	border-top-left-radius: 10px; 
+	border-top-right-radius: 10px;
+}
+
+[type=text], [type=password]{
+	/*text-align: center;*/
+	width: 35%;
+	padding: 1%;
+	margin: 1%;
+	font-size: 20px;
+	background-color: white;
+    background-position: 10px 0px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 3px solid #66A5AD;
+    border-radius: 5px;
+    padding-left: 7%;
+    font-weight: bold;
+	text-decoration: none;
+}
+
+[type="submit"]{
+	background-color: #07575B;
+	width: 30%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	border-radius: 10px;
+	margin: 1%;
+	color: #fff;
+	font-size: 120%;
+	border: none;
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+	/*padding-bottom: 0.5%;*/
+}
