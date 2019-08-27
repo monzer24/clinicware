@@ -10,7 +10,7 @@ public class RootController {
 
     @GetMapping
     public String home(){
-        return "redirect:/home";
+        return "redirect:/register";
     }
 
 }

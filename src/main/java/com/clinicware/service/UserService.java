@@ -3,6 +3,8 @@ package com.clinicware.service;
 import com.clinicware.data.RegisterValidation;
 import com.clinicware.data.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import javax.persistence.EntityManager;
 import javax.persistence.ParameterMode;
@@ -17,7 +19,7 @@ public class UserService {
         this.entity = entity;
     }
 
-    public RegisterValidation registerNewUser(User user){
+    public ResponseEntity<RegisterValidation> registerNewUser(User user){
         StoredProcedureQuery query = entity.createStoredProcedureQuery("INS_MSYS_USERS_P")
                 .registerStoredProcedureParameter("P_USERNAME", String.class, ParameterMode.IN)
                 .setParameter("P_USERNAME", user.getUsername())
@@ -29,7 +31,7 @@ public class UserService {
                 .setParameter("P_LAST_NAME", user.getLastName())
                 .registerStoredProcedureParameter("P_TITLE", String.class, ParameterMode.IN)
                 .setParameter("P_TITLE", user.getTitle())
-                .registerStoredProcedureParameter("P_USER_TYPE", Integer.class, ParameterMode.IN)
+                .registerStoredProcedureParameter("P_USER_TYPE", String.class, ParameterMode.IN)
                 .setParameter("P_USER_TYPE", user.getUserType())
                 .registerStoredProcedureParameter("P_ENTRY_USER", Integer.class, ParameterMode.IN)
                 .setParameter("P_ENTRY_USER", 0)
@@ -46,7 +48,7 @@ public class UserService {
         validation.setStatus((Integer) query.getOutputParameterValue("P_TRX_STATUS"));
         validation.setErrorMessage((String) query.getOutputParameterValue("P_ERROR_MESSAGE"));
         System.out.println(validation);
-        return validation;
+        return new ResponseEntity<>(validation, HttpStatus.OK);
     }
 
 }

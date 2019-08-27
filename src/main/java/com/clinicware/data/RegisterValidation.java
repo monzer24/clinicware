@@ -1,9 +1,7 @@
 package com.clinicware.data;
 
-import lombok.AccessLevel;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
-import org.springframework.data.repository.query.Param;
+import org.springframework.http.ResponseEntity;
 
 import java.util.Map;
 

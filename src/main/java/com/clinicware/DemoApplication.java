@@ -1,5 +1,6 @@
 package com.clinicware;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -17,7 +18,7 @@ public class DemoApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication.run(application, args);
-        System.out.println("http://localhost:8080/register");
+        System.out.println("http://localhost:8080/");
     }
 
     @Override
@@ -28,6 +29,11 @@ public class DemoApplication extends SpringBootServletInitializer {
     @Bean
     public PasswordEncoder encoder(){
         return new StandardPasswordEncoder("53cr3t");
+    }
+
+    @Bean
+    public ObjectMapper getMapper(){
+        return new ObjectMapper();
     }
 
 }

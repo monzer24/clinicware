@@ -1,13 +1,12 @@
 package com.clinicware.data;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 
 @Data
 @Entity
@@ -32,9 +31,10 @@ import java.util.Map;
                 }
         )
 )
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class User implements Serializable {
 
-    public User(String username, String password, String firstName, String lastName, String title, int type) {
+    public User(String username, String password, String firstName, String lastName, String title, String type) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
@@ -42,6 +42,17 @@ public class User implements Serializable {
         this.title = title;
         this.userType = type;
     }
+
+//    public User(String id, String username, String password, String firstName, String lastName, String title, String userType) {
+//        System.out.println("here");
+//        this.id = id;
+//        this.username = username;
+//        this.password = password;
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.title = title;
+//        this.userType = userType;
+//    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -51,6 +62,6 @@ public class User implements Serializable {
     private String firstName;
     private String lastName;
     private String title;
-    private int userType;
+    private String userType;
 
 }
