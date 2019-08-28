@@ -35,6 +35,7 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     public User(String username, String password, String firstName, String lastName, String title, String type) {
+        this.id = "";
         this.username = username;
         this.password = password;
         this.firstName = firstName;

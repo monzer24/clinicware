@@ -6,8 +6,6 @@ import com.clinicware.data.UserRepository;
 import com.clinicware.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.configurationprocessor.json.JSONObject;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -25,11 +23,6 @@ public class RegisterRestController {
     private PasswordEncoder encoder;
     @Autowired
     ObjectMapper mapper;
-//
-//    @GetMapping
-//    public String register(){
-//        return "/register";
-//    }
 
     @Autowired
     public RegisterRestController(UserService userService, UserRepository repo) {
@@ -39,15 +32,14 @@ public class RegisterRestController {
     }
 
     @RequestMapping(path = "/{user}", headers = ("accept=*/*"), produces = "application/xml")
-    public @ResponseBody
-    ResponseEntity<RegisterValidation> addNewUser(@RequestBody User user) throws Exception{
-//        System.out.println(user.getUsername() + " " + user.getPassword());
-//        User user = new User(username, pass word, first, last, title, userType);
+    public ResponseEntity<RegisterValidation> addNewUser(@RequestBody User user) {
         user.setPassword(encoder.encode(user.getPassword()));
+        ResponseEntity<RegisterValidation> response = null;
+        if(repo.findUserByUsername(user.getUsername()) == null){
+            response = userService.registerNewUser(user);
+        }
         System.out.println("User is : " + user);
-
-//        User reg = mapper.convertValue(user, User.class);
-        return userService.registerNewUser(user);
+        return response;
     }
 
     @RequestMapping(path = "/user/{id}")

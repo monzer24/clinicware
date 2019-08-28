@@ -47,8 +47,7 @@ public class UserService {
         validation.setId((Integer) query.getOutputParameterValue("P_ID"));
         validation.setStatus((Integer) query.getOutputParameterValue("P_TRX_STATUS"));
         validation.setErrorMessage((String) query.getOutputParameterValue("P_ERROR_MESSAGE"));
-        System.out.println(validation);
-        return new ResponseEntity<>(validation, HttpStatus.OK);
+        return new ResponseEntity<>(validation, HttpStatus.CREATED);
     }
 
 }
