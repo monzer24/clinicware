@@ -1,9 +1,6 @@
 package com.clinicware.data;
 
 import lombok.Data;
-import org.springframework.http.ResponseEntity;
-
-import java.util.Map;
 
 @Data
 public class RegisterValidation {

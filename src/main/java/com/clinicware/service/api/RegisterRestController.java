@@ -10,8 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.*;
-
 @RestController
 @RequestMapping(path = "/register")
 @CrossOrigin("*")
