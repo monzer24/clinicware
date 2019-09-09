@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Today's Appointments</title>
+	<link href="/static/css/main.css" th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="screen">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+
+	<div class="header">
+		<h2 style="float: left; margin-top: 0.5%; margin-left: 5%; color: white;">ClinicWare</h2>
+		<!-- <ul style="float: left">
+			<li style="padding: 10px 24px;">Welcome Monzer!</li>
+			<li><a>Appointments</a></li>
+			<li><a>Add appointment</a></li>
+			<li><a>Edit Appointment</a></li>
+		</ul> -->
+		<div class="hover" style="float: right; margin: 0.5%; overflow: auto;">
+			<img src="receptionist.png" style="width: 25px; height: 25px;float: left; margin-right: 5px">
+			<img src="arrow-down.png" style="width: 15px; height: 10px; float: right; margin-top: 8px;">
+		</div>
+	</div>
+
+<div id="appointment">
+	<div style="position: relative; margin: 0.1%;">
+		<button style="background-color: #00A09D;" onclick="hide()">Create Patient</button>
+		<div style="float: right;width: 50%; padding-left: 5px;">
+			<input type="text" name="search" placeholder="Search" style="width: 100%; padding-left: 1px; padding-bottom: 2px; padding-top: 2px; font-size: 15px;"><br/>
+			<ul>
+				<li>
+					<label style="color: black;"> Filters: </label>
+				</li>
+				<li>
+					<label class="container" style="float:right">Appointment
+            		    <input type="checkbox" style="width: 25px;" name="appointment"/>
+            		    <span class="checkmark"></span>
+            		</label>
+				</li>
+				<li>
+					<label class="container" style="float:right">Date
+            		    <input type="checkbox" style="width: 25px;" name="date"/>
+            		    <span class="checkmark"></span>
+            		</label>
+				</li>
+				<li>
+					<label class="container" style="float:right">Patient Name
+            		    <input type="checkbox" style="width: 25px;" name="patientName"/>
+            		    <span class="checkmark"></span>
+            		</label>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div style="width: 100%;">				
+		<table class="tg">
+		  	<tr>
+	    		<thead class="tg-amwm">
+	    			<td style="width: 1%;">
+						<input type="checkbox" style="width: 25px;" name="selectAll">
+					</td>
+					<td>
+						Appointment No.
+					</td>
+					<td>
+						Appointment Date
+					</td>
+					<td>
+						Customer Name
+					</td>
+					<td></td>
+	    		</thead>
+		  	</tr>
+		  	<tbody>
+		  	<tr>
+		  		<td style="width: 1%;">
+					<input type="checkbox" style="width: 25px;" name="selectAll">
+				</td>
+				<td>
+					Appointment No.
+				</td>
+				<td>
+					Appointment Date
+				</td>
+				<td>
+					Customer Name
+				</td>
+				<td>
+					<div class="dropdown" style="width: 1px;">
+					<!-- <img src="option.png" style="width: 15px; height: 15px; float: right"> -->
+						<img onclick="myFunction()" src="option.png" class="dropbtn" />
+						<div id="myDropdown" class="dropdown-content">
+							<a href="#">Link 1</a>
+						  	<a href="#">Link 2</a>
+						  	<a href="#">Link 3</a>
+						</div>
+					</div>
+				</td>
+
+
+		  	</tr>
+		  	<tr>
+		  		<td style="width: 1%;">
+					<input type="checkbox" style="width: 25px;" name="selectAll">
+				</td>
+				<td>
+					Appointment No.
+				</td>
+				<td>
+					Appointment Date
+				</td>
+				<td>
+					Customer Name
+				</td>
+				<td>
+					<div class="dropdown" style="width: 1px;">
+					<!-- <img src="option.png" style="width: 15px; height: 15px; float: right"> -->
+						<img onclick="myFunction()" src="option.png"  class="dropbtn"/>
+						<div id="myDropdown" class="dropdown-content">
+							<a href="#">Link 1</a>
+						  	<a href="#">Link 2</a>
+						  	<a href="#">Link 3</a>
+						</div>
+					</div>
+				</td>
+		  	</tr>
+		  	</tbody>
+		</table>
+	</div>
+</div>
+	<div id="create"  style="padding-left: 5%; display: none; font-size: 100%;">
+		
+		<form>
+			<div style="margin-top: 2%;"> 
+			<div style="display: inline; margin-right: 15px">
+				<button style="padding-top: 10px; padding-bottom: 10px;">
+					<img src="save1.png" style="width: 20px; height: 20px;"> Save
+				</button>
+			</div>
+			<div style="display: inline;">
+				<button style="padding-top: 10px; padding-bottom: 10px; background-color: #82bcc9" onclick="hide()">
+					<img src="save.png" style="width: 15px; height: 15px;"> Cancel
+				</button>
+			</div>
+			</div>
+			<!-- <input type="image" value="Save" src="save.png" style="width: 3%; height: 3%;margin-top: 1%; margin-left:10px;" /> -->
+			<!-- <input type="image" value="Cancel" src="xclose.png" onclick="hide()" style="width: 3%; height: 3%; margin-top: 1%; margin-left:10px;"/> -->
+
+			<div style="width: 40%; padding-top: 1%; border: thick; ">
+				<div style="  border: 1px solid; border-color: #aaa;padding: 25px;	box-shadow: 2px 2px 7px grey;">
+				<h1 style="margin: 2%;">New Patient</h1>
+				<div style="margin-left: 3%; padding-bottom: 2%;">
+					<table class="create">
+						<tr>
+							<td style="width: 40%">
+								Patient Name
+							</td>
+							<td style="width: 40%">
+								: <input type="text" name="username" style="width: 90%;">
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 40%">
+								Phone Number
+							</td>
+							<td style="width: 40%">
+								: <input type="text" name="phone" style="width: 90%;">
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 40%">
+								Gender
+							</td>
+							<td style="width: 40%">
+								: <select class="select-css" style="width: 90%;"><option value="male">Male</option><option value="female">Female</option></select>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Birthdate
+							</td>
+							<td>
+								: <input type="date" id="datepicker" required="required" data-position="top" name="bdate" placeholder="bdate"/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Status
+							</td>
+							<td>
+								: <select class="select-css" style="width: 90%;"><option value="single">Single</option><option value="Married">Married</option></select>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Blood type
+							</td>
+							<td>
+								: <select class="select-css" style="width: 90%;"><option value="a">A</option><option value="b">B</option><option value="o">O</option><option value="ab">AB</option></select>
+							</td>
+						</tr>
+					</table>
+				</div>
+				</div>
+			</div>
+
+		</form>
+
+	</div>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+
+	function hide() {
+
+		var x = document.getElementById("create");
+		var y = document.getElementById("appointment")
+		if (x.style.display === "block") {
+			x.style.display = "none";
+			y.style.display = "block";
+		} else {
+			x.style.display = "block";
+			y.style.display = "none";
+		}
+	}
+
+</script>
+</body>
+</html>

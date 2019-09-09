@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Clinic Register</title>
+	<link href="/static/css/main.css" th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="screen">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+
+	
+	<div class="header">
+		<h2 style="float: left; margin-top: 0.5%; margin-left: 5%; color: white;">ClinicWare</h2>
+		<!-- <ul style="float: left">
+			<li style="padding: 10px 24px;">Welcome Monzer!</li>
+			<li><a>Appointments</a></li>
+			<li><a>Add appointment</a></li>
+			<li><a>Edit Appointment</a></li>
+		</ul> -->
+		<div class="hover" style="float: right; margin: 0.5%; overflow: auto;">
+			<img th:src="@{../static/images/receptionist.png}" style="width: 25px; height: 25px;float: left; margin-right: 5px">
+			<img th:src="@{../static/images/arrow-down.png}" style="width: 15px; height: 10px; float: right; margin-top: 8px;">
+		</div>
+	</div>
+
+	<div id="create"  style="padding-left: 5%; font-size: 100%;">
+		
+		<form>
+			<div style="margin-top: 2%;"> 
+			<div style="display: inline; margin-right: 15px">
+				<button style="padding-top: 10px; padding-bottom: 10px;">
+					<img src="../static/images/user.png" th:src="@{../static/images/save1.png}" th:style="'width: 20px; height: 20px;'" /> Save
+				</button>
+			</div>
+			<div style="display: inline;">
+				<button style="padding-top: 10px; padding-bottom: 10px; background-color: #82bcc9">
+					<img src="../static/images/user.png" th:src="@{../static/images/save.png}" th:style="'width: 15px; height: 15px;'"/> Cancel
+				</button>
+			</div>
+			</div>
+			<!-- <input type="image" value="Save" src="save.png" style="width: 3%; height: 3%;margin-top: 1%; margin-left:10px;" /> -->
+			<!-- <input type="image" value="Cancel" src="xclose.png" onclick="hide()" style="width: 3%; height: 3%; margin-top: 1%; margin-left:10px;"/> -->
+
+			<div style="width: 40%; padding-top: 1%; border: thick; ">
+				<div style="  border: 1px solid; border-color: #aaa;padding: 25px;	box-shadow: 2px 2px 7px grey;">
+				<h1 style="margin: 2%;">New Clinic</h1>
+				<div style="margin-left: 3%; padding-bottom: 2%;">
+						<table class="create">
+							<tr>
+								<td style="width: 40%">
+									Clinic Name
+								</td>
+								<td style="width: 40%">
+									: <input type="text" name="clinicName" style="width: 90%;">
+								</td>
+							</tr>
+							<tr>
+								<td style="width: 40%">
+									Clinic Phone Number
+								</td>
+								<td style="width: 40%">
+									: <input type="text" name="clinicPhone" style="width: 90%;">
+								</td>
+							</tr>
+							<tr>
+								<td style="width: 40%">
+									Owner Phone Number
+								</td>
+								<td style="width: 40%">
+									: <input type="text" name="onwerPhone" style="width: 90%;">
+								</td>
+							</tr>
+							<tr>
+								<td style="width: 40%">
+									Clinic Address
+								</td>
+								<td style="width: 40%">
+									: <input type="text" name="address" style="width: 90%;">
+								</td>
+							</tr>
+							<tr>
+								<td style="width: 40%">
+									City
+								</td>
+								<td style="width: 40%">
+									: <input type="text" name="city" style="width: 90%;">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		</form>
+
+	</div>
+
+</body>
+</html>

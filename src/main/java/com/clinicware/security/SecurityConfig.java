@@ -18,15 +18,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String[] PUBLIC_MATCHERS = {
             "/css/**",
             "/js/**",
-            "/json/**",
             "/webjars/**",
             "/static/**"
     };
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.
-                antMatcher("/api/**")
+        http.authorizeRequests()
+                .antMatchers(PUBLIC_MATCHERS)
+                .permitAll()
+
+                .and()
+                .antMatcher("/api/**")
                 .csrf()
                 .disable()
                 .sessionManagement()
@@ -36,11 +39,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .anyRequest()
                 .authenticated()
-
-                .and()
-                .authorizeRequests()
-                .antMatchers(PUBLIC_MATCHERS)
-                .permitAll()
 
                 .and()
                 .formLogin()
@@ -55,22 +53,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .headers()
                 .frameOptions()
                 .sameOrigin();
-
-        http
-                .exceptionHandling()
-                .authenticationEntryPoint((request, response, e) ->
-                {
-                    response.setContentType("application/json;charset=UTF-8");
-                    response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-                    try {
-                        response.getWriter().write(new JSONObject()
-                                .put("timestamp", LocalDateTime.now())
-                                .put("message", "Access denied")
-                                .toString());
-                    } catch (JSONException ex) {
-                        ex.printStackTrace();
-                    }
-                });
 
     }
 
