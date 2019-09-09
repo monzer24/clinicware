@@ -60,9 +60,12 @@ public class User implements Serializable {
     private String id;
     private String username;
     private String password;
+    @Column(name = "firstName")
     private String firstName;
+    @Column(name = "lastName")
     private String lastName;
     private String title;
+    @Column(name = "userType")
     private String userType;
 
 }

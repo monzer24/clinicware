@@ -1,7 +1,16 @@
+/*used colors:
+#003B46
+#07575B
+#66A5AD
+#C4DFE6*/
 body{
 	background-image: url(../images/doctor1.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+
+header{
+	background-color: #003B46;
 }
 
 .frame{
