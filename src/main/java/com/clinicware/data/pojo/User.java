@@ -1,4 +1,4 @@
-package com.clinicware.data;
+package com.clinicware.data.pojo;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

@@ -1,7 +1,7 @@
 package com.clinicware.service.api;
 
 import com.clinicware.data.RegisterValidation;
-import com.clinicware.data.User;
+import com.clinicware.data.pojo.User;
 import com.clinicware.data.UserRepository;
 import com.clinicware.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;

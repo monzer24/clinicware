@@ -1,7 +1,7 @@
 package com.clinicware.service;
 
 import com.clinicware.data.RegisterValidation;
-import com.clinicware.data.User;
+import com.clinicware.data.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

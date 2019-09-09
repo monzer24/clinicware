@@ -1,6 +1,6 @@
 package com.clinicware.controller;
 
-import com.clinicware.data.User;
+import com.clinicware.data.pojo.User;
 import com.clinicware.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;

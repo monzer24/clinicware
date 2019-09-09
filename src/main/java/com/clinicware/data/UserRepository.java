@@ -1,11 +1,9 @@
 package com.clinicware.data;
 
-import org.springframework.data.jpa.repository.query.Procedure;
+import com.clinicware.data.pojo.User;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-import java.util.Map;
 
 @Repository
 @Component
