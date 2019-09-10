@@ -31,6 +31,11 @@ public class NewClinicController {
         rest.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
         ResponseEntity response = rest.postForEntity("http://localhost:8080/newClinic/{clinic}", clinic, RegisterValidation.class, clinicMap);
         RegisterValidation validation = (RegisterValidation) response.getBody();
-        return "";
+        if(validation == null){
+            model.addFlashAttribute("clinic", "Clinic " + clinic.getClinicName() + " is already exist!");
+        }else{
+            model.addFlashAttribute("clinic", "Clinic " + clinic.getClinicName() + " has been added successfully!");
+        }
+        return "redirect:/newClinic";
     }
 }
