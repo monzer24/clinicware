@@ -4,9 +4,11 @@ import com.clinicware.data.ClinicRepository;
 import com.clinicware.data.RegisterValidation;
 import com.clinicware.data.pojo.Clinic;
 import com.clinicware.data.pojo.Doctor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,10 +31,9 @@ public class DoctorRegistrationController {
     }
 
     @GetMapping
-    public String toNewDoctor(RedirectAttributes model){
+    public String toNewDoctor(Model model){
         List<Clinic> clinics = (List<Clinic>) repo.findAll();
-        System.out.println("all : " + clinics);
-        model.addFlashAttribute("clinics", clinics);
+        model.addAttribute("clinics", clinics);
         return "/newDoctor";
     }
 
@@ -45,9 +46,9 @@ public class DoctorRegistrationController {
         ResponseEntity response = rest.postForEntity("http://localhost:8080/newDoctor/{doctor}", doctor, RegisterValidation.class, doctorMap);
         RegisterValidation validation = (RegisterValidation) response.getBody();
         if(validation == null){
-            model.addFlashAttribute("clinic", "Doctor " + doctor.getArabicName() + " is already exist!");
+            model.addFlashAttribute("doctor", "Doctor " + doctor.getArabicName() + " is already exist!");
         }else{
-            model.addFlashAttribute("clinic", "Doctor " + doctor.getArabicName() + " has been added successfully!");
+            model.addFlashAttribute("doctor", "Doctor " + doctor.getArabicName() + " has been added successfully!");
         }
         return "redirect:/newDoctor";
     }
