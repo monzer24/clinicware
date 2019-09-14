@@ -24,10 +24,15 @@ public class Clinic {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
+    @Column(name = "clinic_name")
     private String clinicName;
+    @Column(name = "clinic_phone01")
     private String clinicPhone;
+    @Column(name = "clinic_phone02")
     private String ownerPhone;
+    @Column(name="clinic_adress")
     private String address;
+    @Column(name = "city")
     private String city;
 
 }

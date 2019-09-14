@@ -198,10 +198,13 @@
 									Clinic
 								</td>
 								<td>
-									: <select><option th:each="clinic : ${clinics}"
+									: <select class="select-css" style="width: 90%;" name="clinic">
+									<option value="0">Select a clinic</option>
+										<option th:each="clinic : ${clinics}"
 											   th:value="${clinic.id}"
 											   th:text="${clinic.clinicName}">
-								</option></select>
+										</option>
+									</select>
 								</td>
 							</tr>
 					

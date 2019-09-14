@@ -23,17 +23,19 @@ public class Doctor {
     private String phoneNo1;
     @Column(name = "doctor_phone2")
     private String phoneNo2;
-    @Column(name = "email")
+    @Column(name = "doctor_email")
     private String email;
     @Column(name = "clnc_id")
     private int clinic;
 
     public Doctor(String arabicName, String englishName, String phoneNo1, String phoneNo2, String email, String clinic) {
+        System.out.println(clinic);
         this.arabicName = arabicName;
         this.englishName = englishName;
         this.phoneNo1 = phoneNo1;
         this.phoneNo2 = phoneNo2;
         this.email = email;
-        this.clinic = Integer.valueOf(clinic);
+        this.clinic = Integer.parseInt(clinic);
     }
+
 }

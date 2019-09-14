@@ -43,6 +43,7 @@ public class UserService {
                 .registerStoredProcedureParameter("P_ERROR_MESSAGE", String.class, ParameterMode.OUT);
 
         query.execute();
+        System.out.println(query);
 
         RegisterValidation validation = new RegisterValidation();
         validation.setId((Integer) query.getOutputParameterValue("P_ID"));
