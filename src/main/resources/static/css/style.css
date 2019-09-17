@@ -4,7 +4,7 @@
 #66A5AD
 #C4DFE6*/
 body{
-	background-image: url(../image/bg.jpg);
+	background-image: url(../image/bg.png);
 	background-color: #dddbd1;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -344,7 +344,9 @@ tr:hover{
 
 .list-item button:hover{
 	filter: invert(200%);
-	/*color: white;
+	/*
+    color: white;
+	 */
 	background-color: #e9c5ba;
 }
 
