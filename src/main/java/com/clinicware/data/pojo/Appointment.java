@@ -16,13 +16,14 @@ import javax.persistence.Table;
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 public class Appointment {
 
-    public Appointment(String date, String start, String end, String status, String appointmentId, String patientId) {
+    public Appointment(String date, String start, String end, String status, String appointmentId, String patientId, String englishName) {
         this.date = date;
         this.start = start;
         this.end = end;
         this.status = Integer.parseInt(status);
         this.appointmentId = appointmentId;
         this.patientId = patientId;
+        this.englishName = englishName;
     }
 
     @Id
@@ -40,6 +41,7 @@ public class Appointment {
     private String appointmentId;
     @Column(name = "APT_PATIENT_ID")
     private String patientId;
-
+    @Column(name = "APT_PATIENT_NAME_E")
+    private String englishName;
 
 }
