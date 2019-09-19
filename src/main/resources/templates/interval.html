@@ -31,47 +31,38 @@
 							<td style="width: 40%">
 								Clinic
 							</td>
-							<td style="width: 40%">
-								: <select class="select-css" style="width: 90%;" th:name="clinicId">
+							<td style="width: 40%">: <select class="select-css" style="width: 90%;" th:name="clinicId">
 								<option value="0">Select a clinic</option>
 								<option th:each="clinic : ${clinics}"
 										th:value="${clinic.id}"
 										th:text="${clinic.clinicName}">
 								</option>
-							</select>
-							</td>
+							</select></td>
 						</tr>
 						<tr>
 							<td style="width: 40%">
 								Doctor Name
 							</td>
-							<td style="width: 40%">
-								: <input type="text" th:name="doctorId" style="width: 90%;" value="1">
+							<td style="width: 40%"><label>:<input type="text" th:name="doctorId" style="width: 90%;" value="1"></label>
 							</td>
 						</tr>
 						<tr>
 							<td style="width: 40%">
 								Date
 							</td>
-							<td style="width: 40%">
-								: <input type="date" th:name="date" style="width: 90%;" value="19-9-2019">
-							</td>
+							<td style="width: 40%">: <input type="date" th:name="date" style="width: 90%;" value="19-9-2019"></td>
 						</tr>
 						<tr>
 							<td>
 								Start
 							</td>
-							<td>
-								: <input type="time" th:name="start" style="width: 90%;" value="10:00">
-							</td>
+							<td>: <input type="text" size="5" placeholder="HH:MM" maxlength="5" style="width: 90%;" onkeypress="return isNumber(event,this)" name="start"/></td>
 						</tr>
 						<tr>
 							<td>
 								End
 							</td>
-							<td>
-								: <input type="time" th:name="end" style="width: 90%;" value="14:00">
-							</td>
+							<td>: <input type="text" size="5" placeholder="hh:mm" maxlength="5" style="width: 90%;" onkeypress="return isNumber(event,this)" name="end"/></td>
 						</tr>
 						<tr>
 							<td>
@@ -89,6 +80,48 @@
 	</form>
 
 </div>
+<script>
+	function isNumber(evt,num) {
+		// get keyboard event and then look its keyCode
+		evt = (evt) ? evt : window.event;
+		var charCode = (evt.which) ? evt.which : evt.keyCode;
+		//check the event is numeric
+		if (charCode > 31 && (charCode < 48 || charCode > 57) &&charCode!=186) {
 
+			return false;
+		}
+
+		// Check accordingly every new number must include regular date format
+
+		if(num.value.length == 0 && (charCode==48 || charCode==49 || charCode==50))
+		{
+			return true;
+		}
+		else if(num.value.length == 1 && (charCode>=48 && charCode<=51))
+		{
+			return true;
+		}
+		else if(num.value.length == 2 && (charCode>=48 && charCode<=53))
+		{
+			num.value=num.value+":";
+			return true;
+		}
+		else if(num.value.length == 3 && (charCode>=48 && charCode<=53))
+		{
+			//alert("Bingo");
+			return true;
+		}
+		else if(num.value.length == 4 && (charCode>=48 && charCode<=57))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+
+		return true;
+	}
+</script>
 </body>
 </html>

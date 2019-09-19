@@ -159,12 +159,13 @@ tr:hover{
 [type=text], [type=password], [type=checkbox]{
     width: 35%;
     margin-top: 0.5%;
-    font-size: 20px;
+    font-size: 16px;
     background-color: white;
     background-position: 10px 0px;
     background-repeat: no-repeat;
     border: 1px solid #66A5AD;
     padding-left: 5%;
+    padding: 10px;
     border-top-width: 0;
     border-left-width: 0;
     border-right-width: 0;
