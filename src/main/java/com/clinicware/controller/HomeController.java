@@ -35,7 +35,7 @@ public class HomeController {
         if(encoder.matches(password, user.getPassword())){
             System.out.println("yes");
         }
-        return "redirect:/home";
+        return "redirect:/interval";
     }
 
 }
