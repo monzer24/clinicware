@@ -1,0 +1,72 @@
+<div th:fragment="createClinic" id="create-clinic" style="width: 60%;margin-left: 1%; margin-right: 1%; display: none; position: absolute; align-self: center;font-size: 100%;">
+    <form>
+        <div style="margin-top: 2%;">
+            <div style="display: inline; margin-right: 15px">
+                <button style="padding-top: 10px; padding-bottom: 10px;">
+                    <img th:src="@{/image/save1.png}" style="width: 20px; height: 20px;"> Save
+                </button>
+            </div>
+            <div style="display: inline;">
+                <button style="padding-top: 10px; padding-bottom: 10px; background-color: #82bcc9">
+                    <img th:src="@{/image/save.png}" style="width: 15px; height: 15px;"> Cancel
+                </button>
+            </div>
+        </div>
+        <div style="width: 100%; margin-top: 1%; border: thick; background-color: white;">
+            <div style="  border: 1px solid; border-color: #aaa;padding: 25px;	box-shadow: 2px 2px 7px grey;">
+                <h1 style="margin: 2%;">New Clinic</h1>
+                <div style="padding-bottom: 2%;">
+                    <table class="create" style="width: 60%; margin-left: 20%; margin-right: 20%;">
+                        <tr>
+                            <td style="width: 40%">
+                                Clinic Name
+                            </td>
+                            <td style="width: 40%">
+                                : <input type="text" name="clinicName" style="width: 90%;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 40%">
+                                Clinic Phone Number
+                            </td>
+                            <td style="width: 40%">
+                                : <input type="text" name="clinicPhone" style="width: 90%;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 40%">
+                                Owner Phone Number
+                            </td>
+                            <td style="width: 40%">
+                                : <input type="text" name="onwerPhone" style="width: 90%;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 40%">
+                                Clinic Address
+                            </td>
+                            <td style="width: 40%">
+                                : <input type="text" name="address" style="width: 90%;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 40%">
+                                City
+                            </td>
+                            <td style="width: 40%">
+                                : <input type="text" name="city" style="width: 90%;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</div>

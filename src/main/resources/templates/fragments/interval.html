@@ -1,0 +1,81 @@
+<div th:fragment="interval" layout:decorate="~{appointments.html}" style="width:63%; display: inline-block;font-size: 100%;  position: absolute;">
+    <form method="post" th:action="@{/interval/update}">
+        <div style="width: 100%; padding-top:1px; border: thick; ">
+            <div style="  border: 1px solid; border-color: #aaa;padding: 25px;background-color: white;box-shadow: 2px 2px 7px grey;">
+                <div style="margin-top: 2%;">
+                    <div style="display: inline; margin-right: 15px">
+                        <button style="padding-top: 10px; padding-bottom: 10px;" th:href="@{/interval/update}">
+                            <img th:src="@{/image/save1.png}" style="width: 20px; height: 20px;"> Save
+                        </button>
+                    </div>
+                    <div style="display: inline;">
+                        <button style="padding-top: 10px; padding-bottom: 10px; background-color: #82bcc9" onclick="hide()">
+                            <img th:src="@{/image/save.png}" style="width: 15px; height: 15px;"> Cancel
+                        </button>
+                    </div>
+                </div>
+                <h1 style="margin: 2%;">Intervals</h1>
+                <div style="margin-left: 3%; padding-bottom: 2%;">
+                    <table class="create">
+                        <tr>
+                            <td style="width: 40%">
+                                Clinic
+                            </td>
+                            <td style="width: 40%">
+                                : <select class="select-css" style="width: 90%;" name="clinicId">
+                                <option value="0">Select a clinic</option>
+                                <option th:each="clinic : ${clinics}"
+                                        th:value="${clinic.id}"
+                                        th:text="${clinic.clinicName}">
+                                </option>
+                            </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 40%">
+                                Doctor Name
+                            </td>
+                            <td style="width: 40%">
+                                : <input type="text" th:name="doctorId" style="width: 90%;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 40%">
+                                Date
+                            </td>
+                            <td style="width: 40%">
+                                : <input type="date" th:name="date" style="width: 90%;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Start
+                            </td>
+                            <td>
+                                : <input type="text" size="5" placeholder="HH:MM" maxlength="5" style="width: 90%;" onkeypress="return isNumber(event,this)" name="start"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                End
+                            </td>
+                            <td>
+                                : <input type="text" size="5" placeholder="hh:mm" maxlength="5" style="width: 90%;" onkeypress="return isNumber(event,this)" name="end"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Period(minutes)
+                            </td>
+                            <td>
+                                : <input type="text" name="period" style="width: 90%;">
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>

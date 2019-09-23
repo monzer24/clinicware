@@ -30,11 +30,11 @@ public class IntervalController {
     private ClinicRepository repo;
 
     @GetMapping
-    public String toInterval(Model model){
+    public void toInterval(Model model){
         List<Clinic> clinics = (List<Clinic>) repo.findAll();
-        System.out.println(clinics);
+        System.out.println("Controller : " + clinics);
         model.addAttribute("clinics", clinics);
-        return "interval";
+//        return "interval";
     }
 
     @PostMapping("update")
@@ -53,7 +53,7 @@ public class IntervalController {
         }else{
             model.addFlashAttribute("interval", "Interval " + interval.getIntervalStatus() + " has been added successfully!");
         }
-        return "redirect:/interval";
+        return "redirect:/appointments";
     }
 
 }

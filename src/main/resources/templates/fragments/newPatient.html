@@ -1,0 +1,74 @@
+<div id="create-patient" th:fragment="newPatient" layout:decorate="~{appointments.html}" style="width: 63%; font-size: 100%;  display: inline-block; position: absolute;">
+    <form>
+        <div style="width: 100%; padding-top:1px; border: thick; ">
+            <div style="  border: 1px solid; border-color: #aaa;padding: 25px;background-color: white;box-shadow: 2px 2px 7px grey;">
+                <div style="margin-top: 2%;">
+                    <div style="display: inline; margin-right: 15px">
+                        <button style="padding-top: 10px; padding-bottom: 10px;">
+                            <img th:src="@{/image/save1.png}" style="width: 20px; height: 20px;"> Save
+                        </button>
+                    </div>
+                    <div style="display: inline;">
+                        <button style="padding-top: 10px; padding-bottom: 10px; background-color: #82bcc9" onclick="hide()">
+                            <img th:src="@{/image/save.png}" style="width: 15px; height: 15px;"> Cancel
+                        </button>
+                    </div>
+                </div>
+                <h1 style="margin: 2%;">New Patient</h1>
+                <div style="margin-left: 3%; padding-bottom: 2%;">
+                    <table class="create">
+                        <tr>
+                            <td style="width: 40%">
+                                Patient Name
+                            </td>
+                            <td style="width: 40%">
+                                : <input type="text" name="username" style="width: 90%;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 40%">
+                                Phone Number
+                            </td>
+                            <td style="width: 40%">
+                                : <input type="text" name="phone" style="width: 90%;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 40%">
+                                Gender
+                            </td>
+                            <td style="width: 40%">
+                                : <select class="select-css" style="width: 90%;"><option value="male">Male</option><option value="female">Female</option></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Birthdate
+                            </td>
+                            <td>
+                                : <input type="date" id="datepicker" required="required" data-position="top" name="bdate" placeholder="bdate"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Status
+                            </td>
+                            <td>
+                                : <select class="select-css" style="width: 90%;"><option value="single">Single</option><option value="Married">Married</option></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Blood type
+                            </td>
+                            <td>
+                                : <select class="select-css" style="width: 90%;"><option value="a">A</option><option value="b">B</option><option value="o">O</option><option value="ab">AB</option></select>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
