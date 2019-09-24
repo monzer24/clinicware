@@ -269,6 +269,7 @@ tr:hover{
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    overflow: visible;
 }
 
 .dropdown-content a {
@@ -280,7 +281,7 @@ tr:hover{
 
 .dropdown-content a:hover {background-color: #ddd}
 
-.show {display:block;}
+.show {display:inline-block;}
 
 [type="date"] {
     color: #000;

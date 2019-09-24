@@ -1,10 +1,11 @@
 package com.clinicware.controller;
 
 import com.clinicware.data.RegisterValidation;
-import com.clinicware.data.pojo.Clinic;
+import com.clinicware.data.pojo.Patient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,27 +16,30 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/newClinic")
-public class NewClinicController {
+@RequestMapping(value = "/newPatient")
+public class NewPatientController {
 
     @GetMapping
-    public String toNewClinic(){
-        return "newClinic";
+    public String newPatient(){
+        return "newPatient";
     }
 
-    @PostMapping("/add")
-    public String addClinic(Clinic clinic, RedirectAttributes model, RestTemplate rest){
-        System.out.println(clinic);
-        Map<String, Clinic> clinicMap = new HashMap<>();
-        clinicMap.put("clinic", clinic);
+    @PostMapping(value = "add")
+    public String addNewPatient(Patient patient, RestTemplate rest, RedirectAttributes model){
+        System.out.println(patient);
+        Map<String, Patient> patientMap = new HashMap<>();
+        patientMap.put("patient", patient);
         rest.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-        ResponseEntity response = rest.postForEntity("http://localhost:8080/newClinic/{clinic}", clinic, RegisterValidation.class, clinicMap);
+        ResponseEntity response = rest.postForEntity("http://localhost:8080/newPatient/{patient}", patient, RegisterValidation.class, patientMap);
         RegisterValidation validation = (RegisterValidation) response.getBody();
+
         if(validation == null){
-            model.addFlashAttribute("result", "Clinic " + clinic.getClinicName() + " is already exist!");
+            model.addFlashAttribute("result", "Patient " + patient.getEnglishPatientName() + " is already exist !");
         }else{
-            model.addFlashAttribute("result", "Clinic " + clinic.getClinicName() + " has been added successfully!");
+            model.addFlashAttribute("result", "Patient " + patient.getEnglishPatientName() + " has been added successfully");
         }
+
         return "redirect:/appointments";
     }
+
 }

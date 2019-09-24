@@ -1,10 +1,7 @@
 package com.clinicware.controller;
 
 import com.clinicware.data.ClinicRepository;
-import com.clinicware.data.IntervalRepository;
-import com.clinicware.data.RegisterValidation;
 import com.clinicware.data.pojo.Clinic;
-import com.clinicware.data.pojo.Doctor;
 import com.clinicware.data.pojo.Interval;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,9 +45,9 @@ public class IntervalController {
         ResponseEntity response = rest.postForEntity("http://localhost:8080/interval/{interval}", interval, HashMap.class, intervalMap);
         Map<String, String> validation = (Map<String, String>) response.getBody();
         if(validation == null){
-            model.addFlashAttribute("interval", "Interval " + interval.getIntervalStatus() + " is already exist!");
+            model.addFlashAttribute("result", "Interval " + interval.getIntervalStatus() + " is already exist!");
         }else{
-            model.addFlashAttribute("interval", "Interval " + interval.getIntervalStatus() + " has been added successfully!");
+            model.addFlashAttribute("result", "Interval " + interval.getIntervalStatus() + " has been added successfully!");
         }
         return "redirect:/appointments";
     }

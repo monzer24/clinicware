@@ -44,9 +44,9 @@ public class DoctorRegistrationController {
         ResponseEntity response = rest.postForEntity("http://localhost:8080/newDoctor/{doctor}", doctor, RegisterValidation.class, doctorMap);
         RegisterValidation validation = (RegisterValidation) response.getBody();
         if(validation == null){
-            model.addFlashAttribute("doctor", "Doctor " + doctor.getArabicName() + " is already exist!");
+            model.addFlashAttribute("result", "Doctor " + doctor.getArabicName() + " is already exist!");
         }else{
-            model.addFlashAttribute("doctor", "Doctor " + doctor.getArabicName() + " has been added successfully!");
+            model.addFlashAttribute("result", "Doctor " + doctor.getArabicName() + " has been added successfully!");
         }
         return "redirect:/newDoctor";
     }
