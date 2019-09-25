@@ -4,13 +4,12 @@ import com.clinicware.data.ClinicRepository;
 import com.clinicware.data.RegisterValidation;
 import com.clinicware.data.pojo.Clinic;
 import com.clinicware.data.pojo.Doctor;
+import com.clinicware.data.pojo.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -20,6 +19,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/newDoctor")
+@SessionAttributes("user")
 public class DoctorRegistrationController {
 
     private ClinicRepository repo;
@@ -29,7 +29,10 @@ public class DoctorRegistrationController {
     }
 
     @GetMapping
-    public String toNewDoctor(Model model){
+    public String toNewDoctor(@SessionAttribute("user") User user, Model model){
+        if(user == null){
+            return "redirect:/home";
+        }
         List<Clinic> clinics = (List<Clinic>) repo.findAll();
         model.addAttribute("clinics", clinics);
         return "/newDoctor";

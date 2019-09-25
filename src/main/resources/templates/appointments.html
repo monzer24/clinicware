@@ -21,7 +21,7 @@
 					<img th:src="@{/image/receptionist.png}" style="width: 35px; height: 35px;float: left; margin-right: 5px"/>
 					<img th:src="@{/image/arrow-down.png}" style="width: 15px; height: 10px; float: right; margin-top:15px;"/>
 				</div>
-				<h3 > Hello </h3>
+				<h3 th:text="'Hello ' + ${user.firstName}"> </h3>
 			</div>
 		</div>
 		<div id="main">
@@ -73,7 +73,7 @@
 <!--            <div th:replace="fragments/interval :: div">-->
 <!--            </div>-->
 <!--        </th:block>-->
-        <div id="appointments" style="margin: 1.5%; display: inline-block; position: absolute; width: 60%;">
+        <div id="appointments" style="display: inline-block; position: absolute; width: 60%;">
             <div style="position: relative;">
                 <div style="float: right;width: 70%; padding-left: 5px;">
                     <input type="text" name="search" placeholder="Search" style="width: 100%; padding-left: 1px; padding-bottom: 2px; padding-top: 2px; font-size: 15px;"><br/>

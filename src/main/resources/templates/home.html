@@ -4,6 +4,7 @@
 <head>
 	<title>Home</title>
 	<link href="/static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" type="text/css" media="screen">
+    <link href="/static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="screen">
 </head>
 <body>
 
@@ -12,6 +13,9 @@
 			<div class="frame-header">
 				<h2 style="font-family: sans-serif; color: white">Please log in ..</h2>
 			</div>
+            <div style="width: 100%; background-color: #07575B; color: white ">
+                <h2 th:if="${result}" th:text="${result}"></h2>
+            </div>
 			<form method="post" th:action="@{home/login}" style="padding-top: 4%;">
 				<input type="text" name="username" placeholder="Username" required style="background-image: url(../images/user.png);"><br/>
 				<input type="password" name="password" placeholder="Password" required style="background-image: url(../images/password.png);"><br/><br/>

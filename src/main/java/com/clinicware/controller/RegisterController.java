@@ -10,9 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -22,6 +20,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/register")
+@SessionAttributes("user")
 public class RegisterController {
 
     @Autowired
@@ -31,7 +30,10 @@ public class RegisterController {
     ClinicRepository clinicRepo;
 
     @GetMapping
-    public String register(Model model){
+    public String register(@SessionAttribute("user") User user, Model model){
+        if(user == null){
+            return "redirect:/home";
+        }
         List<Clinic> clinics = (List<Clinic>) clinicRepo.findAll();
         model.addAttribute("clinics", clinics);
         return "register";

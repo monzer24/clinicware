@@ -27,7 +27,7 @@
             </select>
             <br/><br/>
 
-                <select  class="select-css" style="width: 90%;" id="clinics" name="clinicID"><!--style="display: none" -->
+                <select  class="select-css" style="width: 90%;" id="clinics" name="clinicID">
                     <option selected value="0">Select a clinic</option>
                     <option  th:each="clinic : ${clinics}"
                             th:value="${clinic.id}"

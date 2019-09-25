@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Data
 @Entity
 @Table(name = "msys_users")
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@NoArgsConstructor(access = AccessLevel.PUBLIC, force = true)
 //@NamedStoredProcedureQueries(
 //        @NamedStoredProcedureQuery(
 //                name = "registerNewUser",
