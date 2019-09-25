@@ -45,10 +45,7 @@ public class AppointmentsController {
     @RequestMapping(value = "/book", method = RequestMethod.GET)
     public String bookAppointment(@RequestParam(name = "ctiID") String ctiID, Model model){
         System.out.println("ID is : " + ctiID);
-        Optional<Appointment> appointment = appointmentRepo.findById(ctiID);
-        if(appointment.get() == null){
-            System.out.println("null");
-        }
+        Appointment appointment = appointmentRepo.findById(ctiID).get();
         System.out.println("Appointment is : " + appointment);
         return "/";
     }

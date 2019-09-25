@@ -34,7 +34,7 @@ import java.io.Serializable;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class User implements Serializable {
 
-    public User(String username, String password, String firstName, String lastName, String title, String type) {
+    public User(String username, String password, String firstName, String lastName, String title, String type, int clinicID) {
         this.id = "";
         this.username = username;
         this.password = password;
@@ -42,6 +42,7 @@ public class User implements Serializable {
         this.lastName = lastName;
         this.title = title;
         this.userType = type;
+        this.clinicID = clinicID;
     }
 
 //    public User(String id, String username, String password, String firstName, String lastName, String title, String userType) {
@@ -70,5 +71,7 @@ public class User implements Serializable {
     private String title;
     @Column(name = "user_type")
     private String userType;
+    @Column(name ="clinic_id")
+    private int clinicID;
 
 }

@@ -20,6 +20,9 @@ public class PatientService {
 
     public ResponseEntity<RegisterValidation> addNewPatient(Patient patient) {
         StoredProcedureQuery query = entity.createStoredProcedureQuery("INS_CLNC_PATIENT_INFO_P")
+                .registerStoredProcedureParameter("p_clinic_id", Integer.class, ParameterMode.IN)
+                .setParameter("p_clinic_id", patient.getClinicID())
+
                 .registerStoredProcedureParameter("p_patient_name_a", String.class, ParameterMode.IN)
                 .setParameter("p_patient_name_a", patient.getArabicPatientName())
 

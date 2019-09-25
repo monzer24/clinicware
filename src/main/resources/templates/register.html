@@ -4,6 +4,7 @@
 <head>
     <title>Register</title>
     <link href="/static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" type="text/css" media="screen">
+    <link href="/static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="screen">
 </head>
 <body>
 
@@ -13,18 +14,26 @@
             <h2 style="color: white">Please log in ..</h2>
         </div>
         <form method="post" th:action="@{register/regist}" style="padding-top: 4%;">
-            <input type="text" name="username" placeholder="Username" required value="ahmad">
-            <input type="password" name="password" placeholder="Password" required value="1234">
-            <input type="text" name="firstName" required placeholder="First Name" value="ahmad">
-            <input type="text" name="lastName" required placeholder="Last Name" value="ali">
-            <input type="text" name="title" required placeholder="Title" value="doc">
-            <select name="userType">
+            <input type="text" name="username" style="width: 90%;" placeholder="Username" required value="ahmad">
+            <input type="password" name="password" style="width: 90%;" placeholder="Password" required value="1234">
+            <input type="text" name="firstName" style="width: 90%;" required placeholder="First Name" value="ahmad">
+            <input type="text" name="lastName" style="width: 90%;" required placeholder="Last Name" value="ali">
+            <input type="text" name="title" style="width: 90%;" required placeholder="Title" value="doc">
+            <select  class="select-css" style="width: 90%;" name="userType">
                 <option value="0">Admin</option>
-                <option value="1" selected>Doctor</option>
-                <option value="2">Receptionist</option>
+                <option value="1" onclick="showClinics()" selected>Doctor</option>
+                <option value="2" onclick="showClinics()">Receptionist</option>
                 <option value="3">Patient</option>
             </select>
             <br/><br/>
+
+                <select  class="select-css" style="width: 90%;" id="clinics" name="clinicID"><!--style="display: none" -->
+                    <option selected value="0">Select a clinic</option>
+                    <option  th:each="clinic : ${clinics}"
+                            th:value="${clinic.id}"
+                            th:text="${clinic.clinicName}"></option>
+                </select>
+
             <input type="submit" name="register" value="Register" >
         </form>
 
@@ -33,6 +42,13 @@
         </div>
     </div>
 </center>
+
+<script>
+    function showClinics() {
+        var clinics = document.getElementById("clinics");
+        clinics.style.display = "block";
+    }
+</script>
 
 </body>
 </html>

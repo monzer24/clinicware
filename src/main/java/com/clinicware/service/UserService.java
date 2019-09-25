@@ -22,6 +22,9 @@ public class UserService {
 
     public ResponseEntity<RegisterValidation> registerNewUser(User user){
         StoredProcedureQuery query = entity.createStoredProcedureQuery("INS_MSYS_USERS_P")
+
+                .registerStoredProcedureParameter("p_clinic_id", Integer.class, ParameterMode.IN)
+                .setParameter("p_clinic_id", user.getClinicID())
                 .registerStoredProcedureParameter("P_USERNAME", String.class, ParameterMode.IN)
                 .setParameter("P_USERNAME", user.getUsername())
                 .registerStoredProcedureParameter("P_PASSWORD", String.class, ParameterMode.IN)
