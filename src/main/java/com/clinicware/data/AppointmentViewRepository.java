@@ -1,14 +1,14 @@
 package com.clinicware.data;
 
-import com.clinicware.data.pojo.Appointment;
+import com.clinicware.data.pojo.AppointmentView;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface AppointmentRepository extends CrudRepository<Appointment, String> {
+public interface AppointmentViewRepository extends CrudRepository<AppointmentView, String> {
 
-    List<Appointment> findAll();
+    List<AppointmentView> findAll();
 
 }

@@ -12,7 +12,7 @@ import java.sql.Date;
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 public class Patient {
 
-    public Patient(String arabicPatientName, String englishPatientName, String patientPhone, Date birthDate, int gender, int status, int bloodGroup, String spouseName, String clinic01){
+    public Patient(String arabicPatientName, String englishPatientName, String patientPhone, Date birthDate, int gender, int status, int bloodGroup, String spouseName){
         this.arabicPatientName = arabicPatientName;
         this.englishPatientName = englishPatientName;
         this.patientPhone = patientPhone;
@@ -21,7 +21,6 @@ public class Patient {
         this.status = status;
         this.bloodGroup = bloodGroup;
         this.spouseName = spouseName;
-        this.clinicID = clinic01;
     }
 
     @Id
@@ -44,7 +43,7 @@ public class Patient {
     @Column(name = "spouse_name")
     private String spouseName;
     @Column(name = "clinic_id")
-    private String clinicID;
+    private int clinicID;
 
 
 }

@@ -38,17 +38,12 @@
 							<h6 style="color: #777777; margin-left: 46%;"></h6>
 						</div>
 						<div class="list-item">
-							<a onclick="hide('appointments')">
+							<a id="appointments-button" onclick="hide('appointments')">
 								<img th:src="@{/image/appointment.png}" th:style="'filter: invert(100%);'" />Appointments
 							</a>
 						</div>
 						<div class="list-item">
-							<a>
-								<img th:src="@{/image/appointment.png}" th:style="'filter: invert(100%);'"/>Create An Appointment
-							</a>
-						</div>
-						<div class="list-item">
-							<a onclick="hide('create-patient')">
+							<a id="create-patient-button" onclick="hide('create-patient')">
 								<img th:src="@{/image/add-contact.png}" th:style="'filter: invert(100%);'"/>Add Patient
 							</a>
 						</div>
@@ -59,7 +54,7 @@
 						</div>
 						<div class="list-item">
 <!--							<a href="/appointments/interval" layout:fragment="fragments/interval">-->
-                            <a onclick="hide('create-interval')">
+                            <a  id="create-interval-button" onclick="hide('create-interval')">
 								<img th:src="@{/image/intervals.png}" style="filter: invert(100%);"/>Edit Intervals
 							</a>
 						</div>
@@ -73,7 +68,7 @@
 <!--            <div th:replace="fragments/interval :: div">-->
 <!--            </div>-->
 <!--        </th:block>-->
-        <div id="appointments" style="display: inline-block; position: absolute; width: 60%;">
+        <div id="appointments" th:style="'display:'+${hide}+'; position: absolute; width: 60%;'">
             <div style="position: relative;">
                 <div style="float: right;width: 70%; padding-left: 5px;">
                     <input type="text" name="search" placeholder="Search" style="width: 100%; padding-left: 1px; padding-bottom: 2px; padding-top: 2px; font-size: 15px;"><br/>
@@ -140,7 +135,7 @@
                                 <!-- <img src="option.png" style="width: 15px; height: 15px; float: right"> -->
                                 <img th:src="@{/image/option.png}" class="dropbtn" />
                               <div id="myDropdown" class="dropdown-content">
-                                    <a th:href="@{/appointments/book(ctiID=${appointment.ctiID})}" >Book Appointment</a>
+                                    <a th:href="@{/appointments/book(ctiID=${appointment.ctiID})}">Book Appointment</a>
                                     <a href="#">Cancel Appointment</a>
                                     <a href="#">Create Visit</a>
                                     <a href="#">Cancel Visit</a>
@@ -153,6 +148,73 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+
+        <div id="create-appointment" th:style="'width:63%; display:'+${createAppointment}+';font-size: 100%;  position: absolute;'">
+            <form method="post" th:action="@{/appointments/create}">
+                <div style="width: 100%; padding-top:1px; border: thick; ">
+                    <div style="  border: 1px solid; border-color: #aaa;padding: 25px;background-color: white;box-shadow: 2px 2px 7px grey;">
+                        <div style="margin-top: 2%;">
+                            <div style="display: inline; margin-right: 15px">
+                                <button style="padding-top: 10px; padding-bottom: 10px;" th:href="@{/interval/update}">
+                                    <img th:src="@{/image/save1.png}" style="width: 20px; height: 20px;"> Save
+                                </button>
+                            </div>
+                            <div style="display: inline;">
+                                <button style="padding-top: 10px; padding-bottom: 10px; background-color: #82bcc9" onclick="hide()">
+                                    <img th:src="@{/image/save.png}" style="width: 15px; height: 15px;"> Cancel
+                                </button>
+                            </div>
+                        </div>
+                        <h1 style="margin: 2%;">Create Appointment</h1>
+                        <div style="margin-left: 3%; padding-bottom: 2%;">
+                            <table class="create">
+                                <tr>
+                                    <td style="width: 40%">
+                                        Interval
+                                    </td>
+                                    <td style="width: 40%">
+                                        : <input type="text" style="width: 90%;" name="intervalID" th:value="${intervalID}"/>
+<!--                                        : <select class="select-css" style="width: 90%;" name="clinicId">-->
+<!--                                        <option value="0">Select a clinic</option>-->
+<!--                                        <option th:each="clinic : ${clinics}"-->
+<!--                                                th:value="${clinic.id}"-->
+<!--                                                th:text="${clinic.clinicName}">-->
+<!--                                        </option>-->
+<!--                                    </select>-->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 40%">
+                                        Patient ID
+                                    </td>
+                                    <td style="width: 40%">
+                                        : <input type="text" th:name="patientID" style="width: 90%;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 40%">
+                                        Complaint
+                                    </td>
+                                    <td style="width: 40%">
+                                        : <input type="text" th:name="patientComplaint" style="width: 90%;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Cancel Reason
+                                    </td>
+                                    <td>
+                                        : <input type="text" name="cancel" style="width: 90%;">
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
         </div>
 
         <div id="create-interval" style="width:63%; display: none;font-size: 100%;  position: absolute;">
@@ -365,6 +427,10 @@
             }
         }
     }
+
+    function create(id) {
+        console.log(id);
+    }
 </script>
 
 <script>
@@ -433,20 +499,25 @@ function isNumber(evt,num) {
         var appointment = document.getElementById("appointments");
         var intervals = document.getElementById("create-interval");
         var patient = document.getElementById("create-patient");
+        var createAppointment = document.getElementById("create-appointment");
+
         if(show === "appointments"){
             appointment.style.display = "inline-block";
             intervals.style.display = "none";
             patient.style.display = "none";
+            createAppointment.style.display = "none";
         }
         if(show === "create-interval"){
             appointment.style.display = "none";
             intervals.style.display = "inline-block";
             patient.style.display = "none";
+            createAppointment.style.display = "none";
         }
         if(show === "create-patient"){
             appointment.style.display = "none";
             intervals.style.display = "none";
             patient.style.display = "inline-block";
+            createAppointment.style.display = "none";
         }
 }
 
