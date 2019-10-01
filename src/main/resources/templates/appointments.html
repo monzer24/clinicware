@@ -189,7 +189,13 @@
                                         Patient ID
                                     </td>
                                     <td style="width: 40%">
-                                        : <input type="text" th:name="patientID" style="width: 90%;">
+                                        : <select class="select-css" style="width: 90%;" name="patientID">
+                                        <option value="0">Select a patient</option>
+                                        <option th:each="patient : ${patients}"
+                                                th:value="${patient.id}"
+                                                th:text="${patient.englishPatientName}">
+                                        </option>
+                                    </select>
                                     </td>
                                 </tr>
                                 <tr>
@@ -205,7 +211,7 @@
                                         Cancel Reason
                                     </td>
                                     <td>
-                                        : <input type="text" name="cancel" style="width: 90%;">
+                                        : <input type="text" name="cancelReason" style="width: 90%;">
                                     </td>
                                 </tr>
 
