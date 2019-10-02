@@ -137,7 +137,7 @@
                               <div id="myDropdown" class="dropdown-content">
                                     <a th:href="@{/appointments/book(ctiID=${appointment.ctiID})}">Book Appointment</a>
                                     <a href="#">Cancel Appointment</a>
-                                    <a href="#">Create Visit</a>
+                                    <a id="myBtn">Create Visit</a>
                                     <a href="#">Cancel Visit</a>
                                     <a href="#">Update Appointment</a>
                                 </div>
@@ -396,6 +396,520 @@
             </form>
         </div>
 
+        <div id="visit" style="display: none; width: 50%; margin-left: 25%; margin-top: 10%; background-color: #fff; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);z-index: 1; padding-bottom: 1%;">
+            <div id="x" style="margin:2%; float: right; ">
+                <img src="save.png" style="width: 20px; height: 20px; filter: invert(100%);" >
+            </div>
+            <h2 id="title" style="padding: 2%;">
+                New Visit
+            </h2><br/>
+
+            <hr style="border-width: 2px; color: #eee; border-style: solid;" >
+            <div>
+                <ul style="margin: 0%;">
+                    <li style="color: #555; padding: 20px 56px; border: 1px solid grey; margin-left: 0; margin-right: 0">
+                        test1
+                    </li>
+                    <li style="color: #555; padding: 20px 56px; border: 1px solid grey; margin-left: 0; margin-right: 0">
+                        test2
+                    </li>
+                    <li style="color: #555; padding: 20px 56px; border: 1px solid grey; margin-left: 0; margin-right: 0">
+                        test3
+                    </li>
+                    <li style="color: #555; padding: 20px 56px; border: 1px solid grey; margin-left: 0; margin-right: 0">
+                        test4
+                    </li>
+                    <li style="color: #555; padding: 20px 56px; border: 1px solid grey; margin-left: 0; margin-right: 0">
+                        test5
+                    </li>
+                    <li style="color: #555; padding: 20px 56px; border: 1px solid grey; margin-left: 0; margin-right: 0">
+                        test4
+                    </li>
+                    <li style="color: #555; padding: 20px 56px; border: 1px solid grey; margin-left: 0; margin-right: 0">
+                        test5
+                    </li>
+                    <li style="color: #555; padding: 20px 56px; border: 1px solid grey; margin-left: 0; margin-right: 0">
+                        test5
+                    </li>
+                    <li style="color: #555; padding: 20px 56px; border: 1px solid grey; margin-left: 0; margin-right: 0">
+                        more
+                    </li>
+                </ul>
+            </div>
+
+            <hr style="border-width: 2px; color: #eee; border-style: solid;">
+            <div class="tabcontent"  id="vital-signs" style="display: block; width: 60%;margin-left: 1%; margin-right: 1%; align-self: center;font-size: 100%;">
+                <form>
+
+                    <div style="width: 100%; margin-top: 1%; border: thick; background-color: white;">
+                        <div style="padding: 25px;">
+                            <input type="text" name="name" placeholder="Name" style="font-size: 50px; padding: 0; width: 65%; height: 65px; border-bottom-width: 2px;"><br/>
+                            <select class="select-css" style="width: 65%;" name="patient">
+                                <option>test</option>
+                            </select>
+                            <div style="padding-bottom: 1%;">
+                                <table class="create" style="width: 60%; margin-left: 6%; margin-right: 20%;">
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Appointment ID
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="clinicName" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Interval ID
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="clinicPhone" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Patient Name
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="onwerPhone" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Doctor Name
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="address" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Visit Date
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="date" name="city" style="width: 95%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Visit Type
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="visitType" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Complaint
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="complaint" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="width: 100%;border-width: 2px; color: #eee; border-style: solid;">
+
+                    <div style="margin-top: 2%;">
+                        <div style="display: inline; margin-right: 5px">
+                            <button style="padding: 20px; border-radius: 0px; ">
+                                SAVE
+                            </button>
+                        </div>
+                        <div style="display: inline;">
+                            <button style="padding: 20px; background-color: #fff; color: #00A09D;">
+                                CANCEL
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!----------------------------------------------------------------->
+            <div class="tabcontent" id="visit-diagnosis" style="display: none; width: 60%;margin-left: 1%; margin-right: 1%; align-self: center;font-size: 100%;">
+                <form>
+
+                    <div style="width: 100%; margin-top: 1%; border: thick; background-color: white;">
+                        <div style="padding: 25px;">
+                            <input type="text" name="name" placeholder="Name" style="font-size: 50px; padding: 0; width: 65%; height: 65px; border-bottom-width: 2px;"><br/>
+                            <select class="select-css" style="width: 65%;" name="patient">
+                                <option>test</option>
+                            </select>
+                            <div style="padding-bottom: 1%;">
+                                <table class="create" style="width: 60%; margin-left: 6%; margin-right: 20%;">
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Appointment ID
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="clinicName" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Interval ID
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="clinicPhone" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Patient Name
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="onwerPhone" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Doctor Name
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="address" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Visit Date
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="date" name="city" style="width: 95%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Visit Type
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="visitType" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Complaint
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="complaint" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="width: 100%;border-width: 2px; color: #eee; border-style: solid;">
+
+                    <div style="margin-top: 2%;">
+                        <div style="display: inline; margin-right: 5px">
+                            <button style="padding: 20px; border-radius: 0px; ">
+                                SAVE
+                            </button>
+                        </div>
+                        <div style="display: inline;">
+                            <button style="padding: 20px; background-color: #fff; color: #00A09D;">
+                                CANCEL
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!----------------------------------------------------------------->
+            <div class="tabcontent" id="visit-medication" style="display: none; width: 60%;margin-left: 1%; margin-right: 1%; align-self: center;font-size: 100%;">
+                <form>
+
+                    <div style="width: 100%; margin-top: 1%; border: thick; background-color: white;">
+                        <div style="padding: 25px;">
+                            <input type="text" name="name" placeholder="Name" style="font-size: 50px; padding: 0; width: 65%; height: 65px; border-bottom-width: 2px;"><br/>
+                            <select class="select-css" style="width: 65%;" name="patient">
+                                <option>test</option>
+                            </select>
+                            <div style="padding-bottom: 1%;">
+                                <table class="create" style="width: 60%; margin-left: 6%; margin-right: 20%;">
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Appointment ID
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="clinicName" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Interval ID
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="clinicPhone" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Patient Name
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="onwerPhone" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Doctor Name
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="address" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Visit Date
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="date" name="city" style="width: 95%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Visit Type
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="visitType" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Complaint
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="complaint" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="width: 100%;border-width: 2px; color: #eee; border-style: solid;">
+
+                    <div style="margin-top: 2%;">
+                        <div style="display: inline; margin-right: 5px">
+                            <button style="padding: 20px; border-radius: 0px; ">
+                                SAVE
+                            </button>
+                        </div>
+                        <div style="display: inline;">
+                            <button style="padding: 20px; background-color: #fff; color: #00A09D;">
+                                CANCEL
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!----------------------------------------------------------------->
+            <div class="tabcontent" id="visit-procedure" style="display: none; width: 60%;margin-left: 1%; margin-right: 1%; align-self: center;font-size: 100%;">
+                <form>
+
+                    <div style="width: 100%; margin-top: 1%; border: thick; background-color: white;">
+                        <div style="padding: 25px;">
+                            <input type="text" name="name" placeholder="Name" style="font-size: 50px; padding: 0; width: 65%; height: 65px; border-bottom-width: 2px;"><br/>
+                            <select class="select-css" style="width: 65%;" name="patient">
+                                <option>test</option>
+                            </select>
+                            <div style="padding-bottom: 1%;">
+                                <table class="create" style="width: 60%; margin-left: 6%; margin-right: 20%;">
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Appointment ID
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="clinicName" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Interval ID
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="clinicPhone" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Patient Name
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="onwerPhone" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Doctor Name
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="address" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Visit Date
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="date" name="city" style="width: 95%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Visit Type
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="visitType" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Complaint
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="complaint" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="width: 100%;border-width: 2px; color: #eee; border-style: solid;">
+
+                    <div style="margin-top: 2%;">
+                        <div style="display: inline; margin-right: 5px">
+                            <button style="padding: 20px; border-radius: 0px; ">
+                                SAVE
+                            </button>
+                        </div>
+                        <div style="display: inline;">
+                            <button style="padding: 20px; background-color: #fff; color: #00A09D;">
+                                CANCEL
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!----------------------------------------------------------------->
+            <div class="tabcontent" id="doctor-notes" style="display: none; width: 60%;margin-left: 1%; margin-right: 1%; align-self: center;font-size: 100%;">
+                <form>
+
+                    <div style="width: 100%; margin-top: 1%; border: thick; background-color: white;">
+                        <div style="padding: 25px;">
+                            <input type="text" name="name" placeholder="Name" style="font-size: 50px; padding: 0; width: 65%; height: 65px; border-bottom-width: 2px;"><br/>
+                            <select class="select-css" style="width: 65%;" name="patient">
+                                <option>test</option>
+                            </select>
+                            <div style="padding-bottom: 1%;">
+                                <table class="create" style="width: 60%; margin-left: 6%; margin-right: 20%;">
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Appointment ID
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="clinicName" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Interval ID
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="clinicPhone" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Patient Name
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="onwerPhone" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Doctor Name
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="address" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Visit Date
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="date" name="city" style="width: 95%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Visit Type
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="visitType" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 40%">
+                                            Complaint
+                                        </td>
+                                        <td style="width: 40%">
+                                            : <input type="text" name="complaint" style="width: 90%;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="width: 100%;border-width: 2px; color: #eee; border-style: solid;">
+
+                    <div style="margin-top: 2%;">
+                        <div style="display: inline; margin-right: 5px">
+                            <button style="padding: 20px; border-radius: 0px; ">
+                                SAVE
+                            </button>
+                        </div>
+                        <div style="display: inline;">
+                            <button style="padding: 20px; background-color: #fff; color: #00A09D;">
+                                CANCEL
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <button class="tablink" onclick="openTab('vital-signs', this, '#aab6b7', 'Vital Signs')">Vital Signs</button>
+            <button class="tablink" onclick="openTab('visit-diagnosis', this, '#aab6b7', 'Visit Diagnosis')">Visit Diagnosis</button>
+            <button class="tablink" onclick="openTab('visit-medication', this, '#aab6b7', 'Visit Medication')">Visit Medication</button>
+            <button class="tablink" onclick="openTab('visit-procedure', this, '#aab6b7', 'Visit Procedure')">Visit Procedure</button>
+            <button class="tablink" onclick="openTab('doctor-notes', this, '#aab6b7', 'Doctor Notes')">Doctor Notes</button>
+
+        </div>
 
 		<div class="clearer"></div>
 	</div>
@@ -436,6 +950,46 @@
 
     function create(id) {
         console.log(id);
+    }
+    function openTab(cityName,elmnt,color,tabTitle) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(cityName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+        document.getElementById("title").innerHTML=tabTitle;
+    }
+
+    var modal = document.getElementById("visit");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementById("x");
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+        console.log("hi");
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
     }
 </script>
 
